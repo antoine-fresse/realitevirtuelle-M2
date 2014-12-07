@@ -14,15 +14,17 @@ public class AimController : MonoBehaviour {
 
 	private float ajoutX = 0f;
 	private float ajoutY = 0f;
-
+	public MouseLook cameraControl;
 
 
 	void Update ()
 	{
 		ajoutY = Mathf.Clamp(ajoutY + Input.GetAxis("AimX") * sensitivityX * Time.deltaTime, -rangeX, rangeX);
 		ajoutX = Mathf.Clamp(ajoutX + Input.GetAxis("AimY") * sensitivityY * Time.deltaTime, -rangeY, rangeY);
-		
-			
+
+		cameraControl.forceX = Mathf.Abs(ajoutY) >= rangeX ? Mathf.Sign(ajoutY) : 0f;
+		cameraControl.forceY = Mathf.Abs(ajoutX) >= rangeY ? Mathf.Sign(-ajoutX) : 0f;
+	
 		transform.localEulerAngles = new Vector3(baseX - ajoutX, baseY + ajoutY, 0);
 
 

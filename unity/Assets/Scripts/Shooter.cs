@@ -20,7 +20,7 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetMouseButton(0) && _timerFire <= 0.0f) {
+	    if (Input.GetButton("Fire1") && _timerFire <= 0.0f) {
 
 	        MuzzleFlash.DOIntensity(3f, FireRate*0.5f).From();
 	        Emitter.Emit();
@@ -37,10 +37,10 @@ public class Shooter : MonoBehaviour {
 			var newTrail = ((Transform)Instantiate(Trail, Trail.position, Quaternion.identity)).GetComponent<TrailRenderer>();
 
 			newTrail.enabled = true;
-			newTrail.time = FireRate * 2f;
+			newTrail.time = FireRate ;
 			newTrail.autodestruct = true;
-		    
-			newTrail.transform.DOMove(transform.position - transform.forward * 100f, FireRate).From();
+
+		    newTrail.transform.DOMove(transform.position - transform.forward*10f, FireRate);
 
 	        var hits = Physics.RaycastAll(transform.position, -transform.forward, 100f, CanShoot);
 			
