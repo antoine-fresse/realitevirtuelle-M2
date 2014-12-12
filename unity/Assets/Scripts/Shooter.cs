@@ -4,12 +4,15 @@ using DG.Tweening;
 
 public class Shooter : MonoBehaviour {
 
+
+	public bool Fire = false;
     public float FireRate = 0.2f;
     public LayerMask CanShoot;
     public ParticleEmitter Emitter;
     public Light MuzzleFlash;
 	public Transform Trail;
 
+	public bool HasFired = false;
 	private float _timerFire;
 	
 	// Use this for initialization
@@ -20,8 +23,9 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetButton("Fire1") && _timerFire <= 0.0f) {
-
+		HasFired = false;
+	    if (Fire && _timerFire <= 0.0f) {
+		    HasFired = true;
 	        MuzzleFlash.DOIntensity(3f, FireRate*0.5f).From();
 	        Emitter.Emit();
 

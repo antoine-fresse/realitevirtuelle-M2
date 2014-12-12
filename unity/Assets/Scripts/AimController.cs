@@ -17,10 +17,23 @@ public class AimController : MonoBehaviour {
 	public MouseLook cameraControl;
 
 
+	public float AimX = 0f;
+	public float AimY = 0f;
+
 	void Update ()
 	{
-		ajoutY = Mathf.Clamp(ajoutY + Input.GetAxis("AimX") * sensitivityX * Time.deltaTime, -rangeX, rangeX);
-		ajoutX = Mathf.Clamp(ajoutX + Input.GetAxis("AimY") * sensitivityY * Time.deltaTime, -rangeY, rangeY);
+
+		/*
+		 * AimX = Input.GetAxis("AimX");
+		 * AimY = Input.GetAxis("AimY");
+		 */
+/*
+
+		ajoutY = Mathf.Clamp(ajoutY +  AimX * sensitivityX * Time.deltaTime, -rangeX, rangeX);
+		ajoutX = Mathf.Clamp(ajoutX + AimY * sensitivityY * Time.deltaTime, -rangeY, rangeY);
+*/
+		ajoutX = Mathf.Clamp(AimY * sensitivityX, -rangeY, rangeY);
+		ajoutY = Mathf.Clamp(AimX * sensitivityY, -rangeX, rangeX);
 
 		cameraControl.forceX = Mathf.Abs(ajoutY) >= rangeX ? Mathf.Sign(ajoutY) : 0f;
 		cameraControl.forceY = Mathf.Abs(ajoutX) >= rangeY ? Mathf.Sign(-ajoutX) : 0f;
