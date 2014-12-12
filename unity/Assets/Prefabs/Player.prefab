@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b1a29f16bf2ea408106544456aab49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fire: 0
   FireRate: .100000001
   CanShoot:
     serializedVersion: 2
@@ -647,6 +648,7 @@ MonoBehaviour:
   Emitter: {fileID: 1500000}
   MuzzleFlash: {fileID: 10800000}
   Trail: {fileID: 400016}
+  HasFired: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,21 +660,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ff3000dc2d98e45bbef4492ec360ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 60
-  sensitivityY: 60
-  rangeX: 20
+  sensitivityX: 30
+  sensitivityY: 30
+  rangeX: 30
   rangeY: 20
   Cursor: {fileID: 0}
   baseX: 0
   baseY: 180
   cameraControl: {fileID: 11400008}
+  AimX: 0
+  AimY: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1862b350c9f90cc4ba9e25fda7129d9a, type: 3}
   m_Name: 
