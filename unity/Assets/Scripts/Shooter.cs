@@ -50,7 +50,7 @@ public class Shooter : MonoBehaviour {
 			
 	        foreach (var hit in hits) {
 	            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Zombies")) {
-	                hit.collider.gameObject.GetComponent<Zombie>().OnHit();
+	                hit.collider.gameObject.GetComponent<Zombie>().OnHit(hit.point, hit.normal);
 	            }
 	        }
 	    }
