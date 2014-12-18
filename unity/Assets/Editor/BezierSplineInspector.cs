@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(BezierSpline))]
@@ -97,6 +97,9 @@ public class BezierSplineInspector : Editor {
 			size *= 2f;
 		}
 		Handles.color = modeColors[(int)spline.GetControlPointMode(index)];
+		if (selectedIndex == index) {
+			Handles.color = Color.red;
+		}
 		if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotCap)) {
 			selectedIndex = index;
 			Repaint();

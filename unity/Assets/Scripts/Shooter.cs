@@ -24,9 +24,10 @@ public class Shooter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HasFired = false;
-	    if (Fire && _timerFire <= 0.0f) {
+	    if ((Fire||Input.GetMouseButton(0)) && _timerFire <= 0.0f) {
 		    HasFired = true;
 	        MuzzleFlash.DOIntensity(3f, FireRate*0.5f).From();
+		    MuzzleFlash.DOColor(Color.yellow, FireRate*0.5f).From();
 	        Emitter.Emit();
 
 			FMOD_StudioSystem.instance.PlayOneShot("event:/sfx/Fire", transform.position);
@@ -35,7 +36,7 @@ public class Shooter : MonoBehaviour {
 	        transform.DOPunchPosition(transform.forward/10f, FireRate*0.9f);
 	        _timerFire = FireRate;
 
-            //Debug.DrawRay(transform.position+new Vector3(0f,0.1f,0f), transform.forward*-100f, Color.red, FireRate*2f);
+            
 
 
 			var newTrail = ((Transform)Instantiate(Trail, Trail.position, Quaternion.identity)).GetComponent<TrailRenderer>();
@@ -46,13 +47,31 @@ public class Shooter : MonoBehaviour {
 
 		    newTrail.transform.DOMove(transform.position - transform.forward*10f, FireRate);
 
-	        var hits = Physics.RaycastAll(transform.position, -transform.forward, 100f, CanShoot);
-			
-	        foreach (var hit in hits) {
+			var hits = Physics.RaycastAll(transform.parent.position, transform.parent.forward, 100f, CanShoot);
+
+			//Debug.DrawRay(transform.parent.position, transform.parent.forward*100f, Color.red, 1.0f);
+
+		    var minDist = 99999f;
+		    bool found = false;
+		    var z = new RaycastHit();
+			foreach(var hit in hits) {
+				if ((hit.point - transform.parent.position).magnitude < minDist)
+					minDist = (hit.point - transform.parent.position).magnitude;
+				
 	            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Zombies")) {
-	                hit.collider.gameObject.GetComponent<Zombie>().OnHit(hit.point, hit.normal);
+		            if (found) {
+			            if ((hit.point - transform.parent.position).magnitude < (z.point - transform.parent.position).magnitude) {
+				            z = hit;
+			            }
+		            }else
+						z = hit;
+		            found = true;
 	            }
 	        }
+		    if (found) {
+			    if((z.point - transform.parent.position).magnitude <= minDist)
+					z.collider.gameObject.GetComponent<Zombie>().OnHit(z.point, z.normal);
+		    }
 	    }
 
 	    if (_timerFire > 0.0f) {

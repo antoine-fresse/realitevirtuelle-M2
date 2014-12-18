@@ -19,6 +19,8 @@ public class SplineWalker : MonoBehaviour {
 	private float progress;
 	private bool goingForward = true;
 
+	public Squad[] AssociatedSquads;
+
     private void Start() {
         splines = new List<BezierSpline>();
         foreach (Transform child in splineGameObject.transform) {
@@ -68,6 +70,9 @@ public class SplineWalker : MonoBehaviour {
 
     private void nextSpline() {
         if ((currentSplineIndex < splines.Count) && (currentSpline == null)) {
+			if(currentSplineIndex<AssociatedSquads.Length)
+				AssociatedSquads[currentSplineIndex].ActivateSquad();
+
             currentSpline = splines[currentSplineIndex];
         }
     }

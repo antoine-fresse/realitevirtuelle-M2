@@ -17,6 +17,8 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Mouse Look")]
 public class MouseLook : MonoBehaviour {
 
+	public static MouseLook Instance { get; private set; }
+
 	public float sensitivityX = 15F;
 	public float sensitivityY = 15F;
 
@@ -31,6 +33,12 @@ public class MouseLook : MonoBehaviour {
 
 	float rotationY = 0F;
 
+	public float Shake = 0.0f;
+
+	void Awake() {
+		Instance = this;
+	}
+
 	void Update ()
 	{
 
@@ -38,9 +46,11 @@ public class MouseLook : MonoBehaviour {
 			
 		rotationY += Input.GetAxis("Vertical") * sensitivityY + forceY;
 		rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
-			
-		transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
 
+		var shakeVec = new Vector3(Shake * Mathf.Sin(20f * Time.time), Shake * Mathf.Sin(40f * Time.time), 0);
+		transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0) + shakeVec;
+
+		Shake = Mathf.Max(0f, Shake - Time.deltaTime*10f);
 	}
 	
 	void Start ()

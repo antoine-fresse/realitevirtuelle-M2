@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
@@ -9,13 +9,12 @@ public class Spawner : MonoBehaviour {
 
     private float timeSinceLastSpawn;
     private int numberLeft;
-    private bool started;
+    public bool started;
 
 	// Use this for initialization
 	void Start () {
         numberLeft = number;
         timeSinceLastSpawn = (1.0f / rate);
-        started = true;
 	}
 	
 	// Update is called once per frame
@@ -28,11 +27,16 @@ public class Spawner : MonoBehaviour {
 
                 float x = (Random.value * 2f * size) - size;
                 float z = (Random.value * 2f * size) - size;
-                Vector3 pos = transform.localPosition + new Vector3(x, 0, z);
-                print(pos);
-                Instantiate(prefab, pos, Quaternion.identity);
+                Vector3 pos = transform.position + new Vector3(x, 0, z);
+               
+                var t = ((GameObject)Instantiate(prefab, pos, Quaternion.identity)).transform;
+				t.SetParent(transform.parent, true);
+	            t.GetComponent<Zombie>().CanMove = true;
             }
         }
+		if (numberLeft == 0) {
+			Destroy(gameObject);
+		}
 	}
 
     public void Spawn() {
