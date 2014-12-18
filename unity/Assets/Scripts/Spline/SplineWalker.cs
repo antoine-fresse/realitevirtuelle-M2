@@ -71,4 +71,10 @@ public class SplineWalker : MonoBehaviour {
             currentSpline = splines[currentSplineIndex];
         }
     }
+
+    public void stopCurrentSpline() {
+        currentSpline = null;
+        progress = 0f;
+        currentSplineIndex++;
+    }
 }
