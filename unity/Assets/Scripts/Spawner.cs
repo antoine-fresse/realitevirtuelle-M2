@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour {
                 float x = (Random.value * 2f * size) - size;
                 float z = (Random.value * 2f * size) - size;
                 Vector3 pos = transform.localPosition + new Vector3(x, 0, z);
+                print(pos);
                 Instantiate(prefab, pos, Quaternion.identity);
             }
         }

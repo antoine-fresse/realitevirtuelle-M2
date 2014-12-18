@@ -3,7 +3,7 @@ guid: 2a4255e1d6063f844a2456da7204240d
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
+  - prefab: {fileID: 100102, guid: 7a8a0f20a4ec11441bf81d99999b1a14, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -50,7 +50,6 @@ public class SplineWalker : MonoBehaviour {
                     goingForward = true;
                 }
             }
-            print(progress);
             Vector3 position = currentSpline.GetPoint(progress);
             transform.localPosition = position;
             if (lookForward) {
@@ -62,9 +61,9 @@ public class SplineWalker : MonoBehaviour {
                 currentSplineIndex++;
             }
         }
-        /*if (Input.GetKeyDown("space")) {
+        if (Input.GetKeyDown("space")) {
             nextSpline();
-        }*/
+        }
 	}
 
     private void nextSpline() {
