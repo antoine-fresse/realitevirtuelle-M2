@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour {
 	void Start () {
         numberLeft = number;
         timeSinceLastSpawn = (1.0f / rate);
-        started = true;
+        started = false;
 	}
 	
 	// Update is called once per frame
