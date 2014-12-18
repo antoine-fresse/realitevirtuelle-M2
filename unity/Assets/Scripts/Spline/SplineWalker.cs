@@ -68,7 +68,7 @@ public class SplineWalker : MonoBehaviour {
         }
 	}
 
-    private void nextSpline() {
+    public void nextSpline() {
         if ((currentSplineIndex < splines.Count) && (currentSpline == null)) {
 			if(currentSplineIndex<AssociatedSquads.Length)
 				AssociatedSquads[currentSplineIndex].ActivateSquad();

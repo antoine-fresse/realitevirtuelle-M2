@@ -22,5 +22,9 @@ public class Portal : MonoBehaviour {
         }
         other.gameObject.transform.position = destination.transform.position;
         other.gameObject.transform.rotation = destination.transform.rotation;
+
+        if (walker != null) {
+            walker.nextSpline();
+        }
     }
 }
