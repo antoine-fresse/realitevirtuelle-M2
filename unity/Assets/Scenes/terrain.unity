@@ -73,7 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-  m_NavMesh: {fileID: 0}
+  m_NavMesh: {fileID: 19400000, guid: 50c8e2857274db840b7ae9b88e6ecf07, type: 2}
 --- !u!1001 &23406853
 Prefab:
   m_ObjectHideFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!1 &55338174
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!1 &184157453
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +769,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!1 &289097253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1140,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!1 &384278534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,9 +1500,10 @@ GameObject:
   - 4: {fileID: 539150132}
   - 143: {fileID: 539150135}
   - 114: {fileID: 539150133}
+  - 114: {fileID: 539150134}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1533,6 +1538,20 @@ MonoBehaviour:
   duration: 10
   lookForward: 0
   mode: 0
+  AssociatedSquads: []
+--- !u!114 &539150134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: ea85fe8824c3ba54b8ccb5f49bf8437a,
+    type: 2}
+  m_PrefabInternal: {fileID: 23406853}
+  m_GameObject: {fileID: 539150131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec8c6e721e820440acb8c1a025d73af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxLife: 10
 --- !u!143 &539150135
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2525,6 +2544,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!4 &1205187104
 Transform:
   m_ObjectHideFlags: 0
@@ -2735,6 +2755,7 @@ MonoBehaviour:
   maximumY: 60
   forceX: 0
   forceY: 0
+  Shake: 0
 --- !u!81 &1396307242
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3506,6 +3527,7 @@ MonoBehaviour:
   number: 10
   prefab: {fileID: 100102, guid: e09371e9004696c4b8c3688c75798c57, type: 2}
   rate: .100000001
+  started: 0
 --- !u!4 &1913168325
 Transform:
   m_ObjectHideFlags: 0
