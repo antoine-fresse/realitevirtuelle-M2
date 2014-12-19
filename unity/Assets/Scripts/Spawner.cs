@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 
     private float timeSinceLastSpawn;
     private int numberLeft;
-    public bool started = true;
+    public bool started = false;
 
 	// Use this for initialization
 	void Start () {

@@ -2,6 +2,8 @@
 using System;
 
 public class BezierSpline : MonoBehaviour {
+   [SerializeField]
+    public Spawner spawner = null;
 
 	[SerializeField]
 	private Vector3[] points;
@@ -196,4 +198,10 @@ public class BezierSpline : MonoBehaviour {
 			BezierControlPointMode.Free
 		};
 	}
+
+    public void complete() {
+        if (spawner != null) {
+            spawner.Spawn();
+        }
+    }
 }

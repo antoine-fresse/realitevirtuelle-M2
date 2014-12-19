@@ -67,6 +67,7 @@ public class SplineWalker : MonoBehaviour {
                 transform.LookAt(position + currentSpline.GetDirection(progress));
             }
             if (progress >= 1f) {
+                currentSpline.complete();
                 currentSpline = null;
                 progress = 0f;
                 currentSplineIndex++;

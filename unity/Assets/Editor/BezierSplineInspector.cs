@@ -9,6 +9,9 @@ public class BezierSplineInspector : Editor {
 	private const float handleSize = 0.04f;
 	private const float pickSize = 0.06f;
 
+    private SerializedObject mObject; 
+    private SerializedProperty spawner;
+
 	private static Color[] modeColors = {
 		Color.white,
 		Color.yellow,
@@ -20,9 +23,20 @@ public class BezierSplineInspector : Editor {
 	private Quaternion handleRotation;
 	private int selectedIndex = -1;
 
+    void OnEnable() {
+        mObject = new SerializedObject(target);
+        spawner = mObject.FindProperty("spawner");
+    }
+
 	public override void OnInspectorGUI () {
 		spline = target as BezierSpline;
 		EditorGUI.BeginChangeCheck();
+
+        EditorGUILayout.PropertyField(spawner);
+        if (spawner.objectReferenceValue as Spawner != spline.spawner)
+            spline.spawner = spawner.objectReferenceValue as Spawner;
+ 
+
 		bool loop = EditorGUILayout.Toggle("Loop", spline.Loop);
 		if (EditorGUI.EndChangeCheck()) {
 			Undo.RecordObject(spline, "Toggle Loop");
