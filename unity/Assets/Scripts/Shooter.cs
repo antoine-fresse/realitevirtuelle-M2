@@ -47,21 +47,23 @@ public class Shooter : MonoBehaviour {
 
 		    newTrail.transform.DOMove(transform.position - transform.forward*10f, FireRate);
 
-			var hits = Physics.RaycastAll(transform.parent.position, transform.parent.forward, 100f, CanShoot);
+			//var hits = Physics.RaycastAll(transform.parent.position, transform.parent.forward, 100f, CanShoot);
+            var hits = Physics.RaycastAll(transform.position+transform.forward, -transform.forward, 1000f, CanShoot);
 
-			//Debug.DrawRay(transform.parent.position, transform.parent.forward*100f, Color.red, 1.0f);
+            Debug.DrawRay(transform.position + transform.forward, -transform.forward * 100f, Color.red, 1.0f);
 
 		    var minDist = 99999f;
 		    bool found = false;
 		    var z = new RaycastHit();
 			foreach(var hit in hits) {
 				//Debug.Log(hit.collider.gameObject.name);
-				if ((hit.point - transform.parent.position).magnitude < minDist)
-					minDist = (hit.point - transform.parent.position).magnitude;
+				if ((hit.point - transform.position).magnitude < minDist)
+					minDist = (hit.point - transform.position).magnitude;
 				
 	            if (hit.collider.gameObject.tag.Equals("Zombie")) {
+                    hit.collider.gameObject.GetComponent<Zombie>().OnHit(hit.point, hit.normal);
 		            if (found) {
-			            if ((hit.point - transform.parent.position).magnitude < (z.point - transform.parent.position).magnitude) {
+			            if ((hit.point - transform.position).magnitude < (z.point - transform.position).magnitude) {
 				            z = hit;
 			            }
 		            }else
@@ -72,7 +74,7 @@ public class Shooter : MonoBehaviour {
 		    if (found) {
 				
 			    if ((z.point - transform.parent.position).magnitude <= minDist) {
-				    z.collider.gameObject.GetComponent<Zombie>().OnHit(z.point, z.normal);
+				    //z.collider.gameObject.GetComponent<Zombie>().OnHit(z.point, z.normal);
 			    }
 		    }
 	    }

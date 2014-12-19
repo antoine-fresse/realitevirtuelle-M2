@@ -34,6 +34,9 @@ public class Squad : MonoBehaviour {
 	}
 
 	void Update() {
+        if (isFinalSquad && Input.GetKeyDown(KeyCode.P))
+            Application.LoadLevel(nextLevel);
+
 		if (transform.childCount != 0) return;
 
 		if (isFinalSquad)

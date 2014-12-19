@@ -1470,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3ec8ca8cb3e241b09ca98eb356ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   points:
   - {x: 4.41921902, y: 0, z: .259474516}
   - {x: 3.31748486, y: 0, z: .311888456}
@@ -5010,6 +5011,14 @@ Prefab:
       propertyPath: m_TagString
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 100478, guid: b451659af7fcd074989bf53e46080715, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b451659af7fcd074989bf53e46080715, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b451659af7fcd074989bf53e46080715, type: 2}
   m_RootGameObject: {fileID: 1052489927}
@@ -6855,7 +6864,7 @@ GameObject:
   - 136: {fileID: 184404028}
   - 114: {fileID: 184404027}
   - 195: {fileID: 184404026}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -9694,6 +9703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3ec8ca8cb3e241b09ca98eb356ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   points:
   - {x: -17.4200001, y: .00249999994, z: 4.86000061}
   - {x: -21.6914825, y: .00249999994, z: 6.49995804}
@@ -23698,7 +23708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &635268286
 Transform:
   m_ObjectHideFlags: 0
@@ -42747,6 +42757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3ec8ca8cb3e241b09ca98eb356ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   points:
   - {x: -22.2999992, y: .00249999994, z: 11.3299999}
   - {x: -21.2999992, y: .00249999994, z: 11.3299999}
@@ -46773,7 +46784,7 @@ GameObject:
   - 136: {fileID: 1259654036}
   - 114: {fileID: 1259654039}
   - 195: {fileID: 1259654040}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -67213,7 +67224,7 @@ Prefab:
       objectReference: {fileID: 1077449767}
     - target: {fileID: 100002, guid: 52925aea55b22e942bc50b7558584eda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52925aea55b22e942bc50b7558584eda, type: 2}
@@ -68790,6 +68801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a3ec8ca8cb3e241b09ca98eb356ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
   points:
   - {x: -7.30000019, y: 0, z: 2.0999999}
   - {x: -8.40173435, y: 0, z: 2.15241385}
