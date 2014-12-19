@@ -9,13 +9,12 @@ public class Spawner : MonoBehaviour {
 
     private float timeSinceLastSpawn;
     private int numberLeft;
-    public bool started;
+    public bool started = true;
 
 	// Use this for initialization
 	void Start () {
         numberLeft = number;
         timeSinceLastSpawn = (1.0f / rate);
-        started = true;
 	}
 	
 	// Update is called once per frame

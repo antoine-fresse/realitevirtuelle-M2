@@ -17,7 +17,7 @@ public class Zombie : MonoBehaviour {
 	private float _attackCD = 0.0f;
 
 
-	void Start () {
+	void Awake () {
         particleSystem = transform.Find("ParticleSystem").gameObject;
         particleSystem.GetComponent<ParticleSystem>().Stop();
 	    _life = MaxLife;

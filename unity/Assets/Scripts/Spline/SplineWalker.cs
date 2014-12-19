@@ -19,9 +19,17 @@ public class SplineWalker : MonoBehaviour {
 	private float progress;
 	private bool goingForward = true;
 
+	private bool _next = false;
+
 	public Squad[] AssociatedSquads;
 
-    private void Start() {
+	void Awake() {
+		Instance = this;
+	}
+
+	public static SplineWalker Instance { get; private set; }
+
+	private void Start() {
         splines = new List<BezierSpline>();
         foreach (Transform child in splineGameObject.transform) {
             BezierSpline s = child.gameObject.GetComponent<BezierSpline>();
@@ -29,6 +37,7 @@ public class SplineWalker : MonoBehaviour {
                 splines.Add(s);
             }
         }
+		
     }
 
 	private void Update () {
@@ -61,6 +70,9 @@ public class SplineWalker : MonoBehaviour {
                 currentSpline = null;
                 progress = 0f;
                 currentSplineIndex++;
+	            if (_next) {
+		            nextSpline();
+	            }
             }
         }
         if (Input.GetKeyDown("space")) {
@@ -69,11 +81,13 @@ public class SplineWalker : MonoBehaviour {
 	}
 
     public void nextSpline() {
+		_next = true;
         if ((currentSplineIndex < splines.Count) && (currentSpline == null)) {
 			if(currentSplineIndex<AssociatedSquads.Length)
 				AssociatedSquads[currentSplineIndex].ActivateSquad();
 
             currentSpline = splines[currentSplineIndex];
+			_next = false;
         }
     }
 

@@ -55,10 +55,11 @@ public class Shooter : MonoBehaviour {
 		    bool found = false;
 		    var z = new RaycastHit();
 			foreach(var hit in hits) {
+				//Debug.Log(hit.collider.gameObject.name);
 				if ((hit.point - transform.parent.position).magnitude < minDist)
 					minDist = (hit.point - transform.parent.position).magnitude;
 				
-	            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Zombies")) {
+	            if (hit.collider.gameObject.tag.Equals("Zombie")) {
 		            if (found) {
 			            if ((hit.point - transform.parent.position).magnitude < (z.point - transform.parent.position).magnitude) {
 				            z = hit;
@@ -69,8 +70,10 @@ public class Shooter : MonoBehaviour {
 	            }
 	        }
 		    if (found) {
-			    if((z.point - transform.parent.position).magnitude <= minDist)
-					z.collider.gameObject.GetComponent<Zombie>().OnHit(z.point, z.normal);
+				
+			    if ((z.point - transform.parent.position).magnitude <= minDist) {
+				    z.collider.gameObject.GetComponent<Zombie>().OnHit(z.point, z.normal);
+			    }
 		    }
 	    }
 

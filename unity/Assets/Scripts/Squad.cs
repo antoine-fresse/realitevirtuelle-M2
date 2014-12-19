@@ -5,10 +5,9 @@ public delegate void OnAllDeadHandler();
 
 public class Squad : MonoBehaviour {
 
-	private bool _done;
 
-	public event OnAllDeadHandler OnAllDead;
-
+	public bool isFinalSquad = false;
+	public int nextLevel = 2;
 
 	public void ActivateSquad() {
 		foreach(Transform t in transform) {
@@ -35,9 +34,11 @@ public class Squad : MonoBehaviour {
 	}
 
 	void Update() {
-		if (transform.childCount != 0 || _done) return;
+		if (transform.childCount != 0) return;
 
-		if (OnAllDead != null) OnAllDead();
-		_done = true;
+		if (isFinalSquad)
+			Application.LoadLevel(nextLevel);
+		Destroy(gameObject);
+		SplineWalker.Instance.nextSpline();
 	}
 }
