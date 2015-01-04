@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 
 	public void OnHit() {
 		_life--;
+        FMOD_StudioSystem.instance.PlayOneShot("event:/sfx/CivilianHit", transform.position);
 		MouseLook.Instance.Shake = 2f;
 		if (_life == 0) {
 			// TODO Game Over

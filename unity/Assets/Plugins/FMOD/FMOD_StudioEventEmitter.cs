@@ -9,6 +9,7 @@ public class FMOD_StudioEventEmitter : MonoBehaviour
 	public FMODAsset asset;
 	public string path = "";
 	public bool startEventOnAwake = true;
+    public bool loop = true;
 
 	FMOD.Studio.EventInstance evt;
 	bool hasStarted = false;
@@ -159,6 +160,9 @@ public class FMOD_StudioEventEmitter : MonoBehaviour
 		if (evt != null && evt.isValid ()) 
 		{
 			Update3DAttributes();
+            if (HasFinished() && loop) {
+                StartEvent();
+            }
 		} 
 		else 
 		{
@@ -170,7 +174,7 @@ public class FMOD_StudioEventEmitter : MonoBehaviour
 	{
 		if (evt != null && evt.isValid ()) 
 		{
-			var attributes = UnityUtil.to3DAttributes(gameObject, cachedRigidBody);			
+			var attributes = UnityUtil.to3DAttributes(gameObject);			
 			ERRCHECK(evt.set3DAttributes(attributes));
 		}
 	}
