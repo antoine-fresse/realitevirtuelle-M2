@@ -26,5 +26,11 @@ public class Portal : MonoBehaviour {
         if (walker != null) {
             walker.nextSpline();
         }
+
+        GameObject go = GameObject.Find("GameManager");
+        if (go != null) {
+            GameManager gm = go.GetComponent<GameManager>();
+            gm.setLocation(0);
+        }
     }
 }

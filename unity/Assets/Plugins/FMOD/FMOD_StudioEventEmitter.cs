@@ -46,6 +46,9 @@ public class FMOD_StudioEventEmitter : MonoBehaviour
 	
 	public FMOD.Studio.ParameterInstance getParameter(string name)
 	{
+        if (evt == null || !evt.isValid()) {
+            CacheEventInstance();
+        }
 		FMOD.Studio.ParameterInstance param = null;
 		ERRCHECK(evt.getParameter(name, out param));
 			
@@ -174,7 +177,7 @@ public class FMOD_StudioEventEmitter : MonoBehaviour
 	{
 		if (evt != null && evt.isValid ()) 
 		{
-			var attributes = UnityUtil.to3DAttributes(gameObject);			
+			var attributes = UnityUtil.to3DAttributes(gameObject, cachedRigidBody);			
 			ERRCHECK(evt.set3DAttributes(attributes));
 		}
 	}

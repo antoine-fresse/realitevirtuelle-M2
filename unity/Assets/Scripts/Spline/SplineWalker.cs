@@ -23,6 +23,8 @@ public class SplineWalker : MonoBehaviour {
 
 	public Squad[] AssociatedSquads;
 
+    private FMOD.Studio.ParameterInstance footstepParam;
+
 	void Awake() {
 		Instance = this;
 	}
@@ -37,7 +39,15 @@ public class SplineWalker : MonoBehaviour {
                 splines.Add(s);
             }
         }
-		
+        FMOD_StudioEventEmitter[] emitters = GetComponents<FMOD_StudioEventEmitter>();
+        for (int i = 0; i < emitters.Length; i++) {
+            emitters[i].Play();
+            footstepParam = emitters[i].getParameter("speed");
+            if (footstepParam != null) {
+                footstepParam.setValue(0.0f);
+                break;
+            }
+        }
     }
 
 	private void Update () {
@@ -67,6 +77,9 @@ public class SplineWalker : MonoBehaviour {
                 transform.LookAt(position + currentSpline.GetDirection(progress));
             }
             if (progress >= 1f) {
+                if (footstepParam != null) {
+                    footstepParam.setValue(0.0f);
+                }
                 currentSpline.complete();
                 currentSpline = null;
                 progress = 0f;
@@ -74,6 +87,8 @@ public class SplineWalker : MonoBehaviour {
 	            if (_next) {
 		            nextSpline();
 	            }
+            } else if (footstepParam != null) {
+                footstepParam.setValue(1.0f);
             }
         }
         if (Input.GetKeyDown("space")) {

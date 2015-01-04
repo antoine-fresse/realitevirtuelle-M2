@@ -1,3 +1,5 @@
+#define FMOD_LIVEUPDATE
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -179,8 +181,7 @@ public class FMOD_StudioSystem : MonoBehaviour
 			if (path.StartsWith("{"))
 			{
 				ERRCHECK(FMOD.Studio.Util.ParseID(path, out id));
-			}
-			else if (path.StartsWith("event:"))
+			} else if (path.StartsWith("event:") || path.StartsWith("snapshot:"))
 			{
 				ERRCHECK(system.lookupID(path, out id));
 			}
