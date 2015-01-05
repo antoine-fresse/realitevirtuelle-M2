@@ -111,7 +111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ea85fe8824c3ba54b8ccb5f49bf8437a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: ea85fe8824c3ba54b8ccb5f49bf8437a, type: 2}
       propertyPath: Cursor
@@ -513,7 +513,7 @@ Transform:
   m_Children:
   - {fileID: 994056235}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &174924228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,7 +1437,7 @@ Transform:
   - {fileID: 1978133578}
   - {fileID: 1078401863}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!65 &403537901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1909430790}
-  TargetTime: 120
+  TargetTime: 30
 --- !u!1 &469536557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: e4c5aaca6cd60e0439eba134f5bdb1fa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: e4c5aaca6cd60e0439eba134f5bdb1fa, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1904,7 +1904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_LocalScale.y
@@ -2536,7 +2536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_LocalScale.y
@@ -3226,7 +3226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d94ab174e11eb0346abaa8d4510b03c6, type: 2}
       propertyPath: m_LocalScale.y
@@ -3987,7 +3987,7 @@ Transform:
   m_Children:
   - {fileID: 1112955770}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1937970861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4394,7 +4394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 52925aea55b22e942bc50b7558584eda, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 52925aea55b22e942bc50b7558584eda, type: 2}
       propertyPath: Aim

@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 
     void Update() {
         if (_gameManager != null) {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 50.0f);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 60.0f);
             bool found = false;
             for (int i = 0; i < hitColliders.Length; i++) {
                 Zombie zombie = hitColliders[i].gameObject.GetComponent<Zombie>();
@@ -37,7 +37,6 @@ public class Player : MonoBehaviour {
                     break;
                 }
             }
-            print("setFightMode : " + found);
             _gameManager.setFightMode(found);
         }
         

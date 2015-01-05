@@ -42,6 +42,16 @@ public class GameManager : MonoBehaviour {
 		TimerText.text = "Temps : " + Mathf.Floor(_time / 60f) + "m " + Mathf.Floor(_time - Mathf.Floor(_time / 60f)*60f) + "s";
         if (_timeParam != null) {
             _timeParam.setValue(Mathf.Max(0.0f, (TargetTime - _time) / TargetTime));
+
+            if (((TargetTime - _time) / TargetTime) < 0.1) {
+                TimerText.color = new Color(1.0f, 0.0f, 0.0f);
+            } else if (((TargetTime - _time) / TargetTime) < 0.3) {
+                TimerText.color = new Color(0.88f, 0.66f, 0.14f);
+            } else if (((TargetTime - _time) / TargetTime) < 0.5) {
+                TimerText.color = new Color(1.0f, 1.0f, 0.0f);
+            } else {
+                TimerText.color = new Color(0.0f, 1.0f, 0.0f);
+            }
         }
 	}
 
